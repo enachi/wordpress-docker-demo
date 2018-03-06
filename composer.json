@@ -23,8 +23,9 @@
   "require": {
     "composer/installers": "^1.2",
     "drupal-composer/preserve-paths": "0.1.*",
+    "johnpbloch/wordpress-core": "dev-master",
     "johnpbloch/wordpress-core-installer": "^1.0",
-    "johnpbloch/wordpress-core": "dev-master"
+    "wpackagist-plugin/advanced-custom-fields": "^5.6"
   },
   "extra": {
     "installer-paths": {
