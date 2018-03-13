@@ -3,6 +3,7 @@ version: '2.1'
 services:
   nginx:
     image: wodby/wordpress-nginx:4-1.13-3.0.2
+    container_name: nginx_demo
     environment:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
@@ -17,7 +18,9 @@ services:
 
   php:
     build: .
+    image: senachi/php:$[TAG]
     restart: always
+    container_name: php_demo
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       PHP_FPM_CLEAR_ENV: "no"
@@ -39,6 +42,7 @@ services:
 
   mariadb:
     image: wodby/mariadb:10.2-3.0.2
+    container_name: mysql_demo
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
